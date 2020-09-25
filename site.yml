@@ -1,0 +1,15 @@
+---
+
+- name: NAMAGED CONTROL
+  hosts: control
+  connection: local
+  become: yes
+  roles:
+    - common
+
+- name: MANAGE NODES
+  hosts: managed_nodes
+  become: yes
+
+  roles:
+    - common
