@@ -1,0 +1,10 @@
+---
+- name: install httpd
+  package:
+    name: httpd
+    state: present
+
+- name: start httpd
+  systemd:
+    state: started
+    name: httpd

@@ -1,0 +1,5 @@
+---
+
+- name: Display network interface
+  debug:
+    msg: System {{ inventory_hostname }} has address {{ ansible_interfaces }}

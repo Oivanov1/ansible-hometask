@@ -1,0 +1,8 @@
+---
+
+- name: MANAGE NODES
+  hosts: managed_nodes
+  become: yes
+
+  roles:
+    - common

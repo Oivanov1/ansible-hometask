@@ -1,0 +1,11 @@
+---
+
+- name: Generate whoami.html
+  template:
+      src: "{{ item | basename }}"
+      dest: "{{ static_web_server_default_path }}/{{ item | basename }}"
+      mode: 0644
+  with_fileglob:
+    - templates/*
+  notify:
+    - restart httpd
