@@ -1,8 +1,8 @@
 ---
 
-- name: Get interface info
+- name: Get report
   hosts: managed_nodes
   become: yes
 
   roles:
-    - common
+    - uptime-report

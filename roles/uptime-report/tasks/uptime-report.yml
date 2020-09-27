@@ -1,0 +1,12 @@
+---
+- name: Get report from server
+  uptime-bash: ~
+  register: result
+
+- name: Create report files
+  delegate_to: localhost
+  vars: 
+    server_uptime: "{{ result.uptime }}"
+  template:
+      src: "report-template.j2"
+      dest: "{{playbook_dir}}/reports/{{ inventory_hostname }}"
