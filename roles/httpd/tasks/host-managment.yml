@@ -1,0 +1,19 @@
+---
+
+- name: check current inventory
+  debug:
+    msg: "{{ group_names }}"
+
+- name: change node1 
+  add_host:
+    hostname: node1
+    groupname: web1
+
+- name: change hode2
+  add_host:
+    hostname: node2
+    groupname: web2
+
+- name: check after activity inventory
+  debug:
+    msg: "{{ group_names }}"

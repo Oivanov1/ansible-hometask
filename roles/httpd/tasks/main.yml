@@ -1,4 +1,4 @@
 ---
- 
+ - include_tasks: host-managment.yml
  - include_tasks: httpd-instalation.yml
  - include_tasks: whoami-provision.yml
