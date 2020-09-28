@@ -2,10 +2,23 @@
 
 - name: Generate whoami.html
   template:
-      src: "{{ item | basename }}"
-      dest: "{{ static_web_server_default_path }}/{{ item | basename }}"
+      src: templates/whoami.html
+      dest: "{{ static_web_server_default_path }}/whoami.html"
       mode: 0644
-  with_fileglob:
-    - templates/*
+  register: whoami
+  
+- name: Generate whoami2.html
+  template:
+      src: templates/whoami2.html
+      dest: "{{ static_web_server_default_path }}/whoami2.html"
+      mode: 0644
+  register: whoami2
+  
+- name: restart httpd on change
   notify:
     - restart httpd
+  when: whoami2.changed
+  debug: 
+    msg : "restarted httpd"
+  
+ 
